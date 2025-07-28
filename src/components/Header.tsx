@@ -1,5 +1,6 @@
 import { TrendingUp, Calculator, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -32,6 +33,7 @@ const Header = () => {
             <Calculator className="h-4 w-4" />
             <span>50-30-20 Rule</span>
           </Button>
+          <ThemeToggle />
         </nav>
       </div>
     </header>
