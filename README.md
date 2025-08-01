@@ -1,73 +1,174 @@
-# Welcome to your Lovable project
+# Future Finance - Smart Budgeting & Expense Tracking
 
-## Project info
+A comprehensive financial management application that combines price prediction, budgeting with the 50-30-20 rule, and intelligent credit card expense tracking with automatic categorization.
 
-**URL**: https://lovable.dev/projects/1409c127-49d8-45da-8276-be657814c628
+## Features
 
-## How can I edit this code?
+### 🎯 Price Predictions
 
-There are several ways of editing your application.
+- Advanced price prediction algorithms
+- Historical data analysis
+- Trend visualization with interactive charts
 
-**Use Lovable**
+### 💰 50-30-20 Budget Calculator
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1409c127-49d8-45da-8276-be657814c628) and start prompting.
+- **50% for Needs**: Housing, utilities, groceries, transportation, insurance, healthcare
+- **30% for Wants**: Dining out, entertainment, shopping, travel, hobbies, beauty
+- **20% for Savings**: Emergency fund, retirement, investments, debt payment
 
-Changes made via Lovable will be committed automatically to this repo.
+### 💳 Credit Card & Expense Tracker
 
-**Use your preferred IDE**
+- **Add Multiple Credit Cards**: Track different cards with balances and limits
+- **Automatic Expense Categorization**: Expenses are automatically categorized based on the 50-30-20 rule
+- **Smart Subcategories**:
+  - **Needs**: Housing/Rent, Utilities, Groceries, Transportation, Insurance, Healthcare
+  - **Wants**: Dining Out, Entertainment, Shopping, Travel, Hobbies, Beauty/Personal Care
+  - **Savings**: Emergency Fund, Retirement, Investments, Debt Payment
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📊 Spending Analytics
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Real-time Budget Performance**: Track how you're doing against the 50-30-20 rule
+- **Spending Trends**: Visualize daily spending patterns over time
+- **Category Breakdown**: See where your money is going with detailed charts
+- **Smart Insights**: Get personalized recommendations and warnings
+- **Time Range Analysis**: View data for week, month, quarter, or year
 
-Follow these steps:
+### 🎨 Modern UI/UX
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Dark/Light theme toggle
+- Responsive design for all devices
+- Interactive charts and visualizations
+- Smooth navigation between sections
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## How It Works
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Adding Credit Cards
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+1. Navigate to the "Cards" section
+2. Click "Add New Card"
+3. Enter card name, last 4 digits, credit limit, and current balance
+4. Your card will be saved and ready for expense tracking
 
-**Edit a file directly in GitHub**
+### Recording Expenses
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Select a credit card from your saved cards
+2. Enter the expense amount
+3. Choose the appropriate subcategory (e.g., "Shopping" for new shoes)
+4. Add a description (e.g., "New Nike shoes")
+5. The system automatically categorizes it as "Wants" (30% category)
 
-**Use GitHub Codespaces**
+### Understanding the Categorization
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Needs (50%)**: Essential expenses you can't live without
+- **Wants (30%)**: Discretionary spending that enhances your lifestyle
+- **Savings (20%)**: Money set aside for future financial security
 
-## What technologies are used for this project?
+### Analytics & Insights
 
-This project is built with:
+- View your spending breakdown by category
+- See how you're tracking against budget limits
+- Get alerts when approaching budget thresholds
+- Analyze spending trends over time
+- Receive personalized financial insights
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Technology Stack
 
-## How can I deploy this project?
+- **Frontend**: React 18 with TypeScript
+- **UI Components**: Shadcn/ui with Tailwind CSS
+- **Charts**: Recharts for data visualization
+- **State Management**: React Context API
+- **Build Tool**: Vite
+- **Package Manager**: npm
 
-Simply open [Lovable](https://lovable.dev/projects/1409c127-49d8-45da-8276-be657814c628) and click on Share -> Publish.
+## Getting Started
 
-## Can I connect a custom domain to my Lovable project?
+1. **Clone the repository**
 
-Yes, you can!
+   ```bash
+   git clone <repository-url>
+   cd future-finance-graphs
+   ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. **Install dependencies**
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## Usage Examples
+
+### Example 1: Buying Shoes
+
+- **Expense**: $100 for new shoes
+- **Subcategory**: Shopping
+- **Automatic Categorization**: Wants (30%)
+- **Result**: Shows in "Wants" category with shopping icon
+
+### Example 2: Grocery Shopping
+
+- **Expense**: $150 for groceries
+- **Subcategory**: Groceries
+- **Automatic Categorization**: Needs (50%)
+- **Result**: Shows in "Needs" category with utensils icon
+
+### Example 3: Emergency Fund Contribution
+
+- **Expense**: $200 for emergency fund
+- **Subcategory**: Emergency Fund
+- **Automatic Categorization**: Savings (20%)
+- **Result**: Shows in "Savings" category with piggy bank icon
+
+## Features in Detail
+
+### Budget Calculator
+
+- Enter your monthly after-tax income
+- See instant breakdown of 50-30-20 allocation
+- Visual pie chart and bar chart representations
+- Annual projections and recommendations
+
+### Credit Card Management
+
+- Add multiple credit cards with different limits
+- Track current balances automatically
+- Remove cards and associated expenses
+- Real-time balance updates
+
+### Expense Tracking
+
+- Automatic categorization based on subcategory selection
+- Detailed expense history with dates and descriptions
+- Visual indicators for each category
+- Easy expense management
+
+### Analytics Dashboard
+
+- Time-based filtering (week/month/quarter/year)
+- Budget performance tracking
+- Spending trend analysis
+- Top spending categories
+- Personalized insights and recommendations
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+**Future Finance** - Making personal finance management smarter and more intuitive.

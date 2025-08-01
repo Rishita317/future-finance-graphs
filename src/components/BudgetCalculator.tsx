@@ -1,28 +1,62 @@
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+} from "recharts";
 import { DollarSign, PiggyBank, Heart, Coffee } from "lucide-react";
+import { useFinance } from "@/contexts/FinanceContext";
 
 const BudgetCalculator = () => {
-  const [income, setIncome] = useState<string>("");
-  
+  const { monthlyIncome: contextIncome, setMonthlyIncome } = useFinance();
+  const [income, setIncome] = useState<string>(contextIncome.toString());
+
   const monthlyIncome = parseFloat(income) || 0;
   const needs = monthlyIncome * 0.5;
   const wants = monthlyIncome * 0.3;
   const savings = monthlyIncome * 0.2;
 
   const pieData = [
-    { name: 'Needs (50%)', value: needs, color: 'hsl(var(--chart-1))' },
-    { name: 'Wants (30%)', value: wants, color: 'hsl(var(--chart-2))' },
-    { name: 'Savings (20%)', value: savings, color: 'hsl(var(--chart-3))' }
+    { name: "Needs (50%)", value: needs, color: "hsl(var(--chart-1))" },
+    { name: "Wants (30%)", value: wants, color: "hsl(var(--chart-2))" },
+    { name: "Savings (20%)", value: savings, color: "hsl(var(--chart-3))" },
   ];
 
   const barData = [
-    { category: 'Needs', amount: needs, percentage: 50, color: 'hsl(var(--chart-1))' },
-    { category: 'Wants', amount: wants, percentage: 30, color: 'hsl(var(--chart-2))' },
-    { category: 'Savings', amount: savings, percentage: 20, color: 'hsl(var(--chart-3))' }
+    {
+      category: "Needs",
+      amount: needs,
+      percentage: 50,
+      color: "hsl(var(--chart-1))",
+    },
+    {
+      category: "Wants",
+      amount: wants,
+      percentage: 30,
+      color: "hsl(var(--chart-2))",
+    },
+    {
+      category: "Savings",
+      amount: savings,
+      percentage: 20,
+      color: "hsl(var(--chart-3))",
+    },
   ];
 
   const CustomTooltip = ({ active, payload }: any) => {
@@ -46,8 +80,9 @@ const BudgetCalculator = () => {
             50-30-20 Budget Rule
           </h2>
           <p className="text-lg text-muted-foreground">
-            A simple and effective budgeting method that allocates your after-tax income into three categories: 
-            50% for needs, 30% for wants, and 20% for savings and debt repayment.
+            A simple and effective budgeting method that allocates your
+            after-tax income into three categories: 50% for needs, 30% for
+            wants, and 20% for savings and debt repayment.
           </p>
         </div>
 
@@ -56,7 +91,8 @@ const BudgetCalculator = () => {
             <CardHeader>
               <CardTitle>Calculate Your Budget</CardTitle>
               <CardDescription>
-                Enter your monthly after-tax income to see your 50-30-20 breakdown
+                Enter your monthly after-tax income to see your 50-30-20
+                breakdown
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -69,7 +105,10 @@ const BudgetCalculator = () => {
                     type="number"
                     placeholder="Enter your monthly income"
                     value={income}
-                    onChange={(e) => setIncome(e.target.value)}
+                    onChange={(e) => {
+                      setIncome(e.target.value);
+                      setMonthlyIncome(parseFloat(e.target.value) || 0);
+                    }}
                     className="pl-10"
                   />
                 </div>
@@ -85,10 +124,14 @@ const BudgetCalculator = () => {
                         </div>
                         <div>
                           <p className="font-medium">Needs (50%)</p>
-                          <p className="text-sm text-muted-foreground">Housing, utilities, groceries</p>
+                          <p className="text-sm text-muted-foreground">
+                            Housing, utilities, groceries
+                          </p>
                         </div>
                       </div>
-                      <p className="text-lg font-mono font-semibold">${needs.toLocaleString()}</p>
+                      <p className="text-lg font-mono font-semibold">
+                        ${needs.toLocaleString()}
+                      </p>
                     </div>
 
                     <div className="flex items-center justify-between p-4 bg-chart-2/10 rounded-lg border">
@@ -98,10 +141,14 @@ const BudgetCalculator = () => {
                         </div>
                         <div>
                           <p className="font-medium">Wants (30%)</p>
-                          <p className="text-sm text-muted-foreground">Entertainment, dining out, hobbies</p>
+                          <p className="text-sm text-muted-foreground">
+                            Entertainment, dining out, hobbies
+                          </p>
                         </div>
                       </div>
-                      <p className="text-lg font-mono font-semibold">${wants.toLocaleString()}</p>
+                      <p className="text-lg font-mono font-semibold">
+                        ${wants.toLocaleString()}
+                      </p>
                     </div>
 
                     <div className="flex items-center justify-between p-4 bg-chart-3/10 rounded-lg border">
@@ -111,10 +158,14 @@ const BudgetCalculator = () => {
                         </div>
                         <div>
                           <p className="font-medium">Savings (20%)</p>
-                          <p className="text-sm text-muted-foreground">Emergency fund, retirement, investments</p>
+                          <p className="text-sm text-muted-foreground">
+                            Emergency fund, retirement, investments
+                          </p>
                         </div>
                       </div>
-                      <p className="text-lg font-mono font-semibold">${savings.toLocaleString()}</p>
+                      <p className="text-lg font-mono font-semibold">
+                        ${savings.toLocaleString()}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -167,34 +218,60 @@ const BudgetCalculator = () => {
             <CardContent>
               <div className="h-64 w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={barData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="category" stroke="hsl(var(--muted-foreground))" />
-                    <YAxis 
-                      stroke="hsl(var(--muted-foreground))"
-                      tickFormatter={(value) => `$${(value * 12 / 1000).toFixed(0)}k`}
+                  <BarChart
+                    data={barData}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                  >
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      stroke="hsl(var(--border))"
                     />
-                    <Tooltip 
-                      formatter={(value: number) => [`$${(value * 12).toLocaleString()}`, 'Annual Amount']}
+                    <XAxis
+                      dataKey="category"
+                      stroke="hsl(var(--muted-foreground))"
+                    />
+                    <YAxis
+                      stroke="hsl(var(--muted-foreground))"
+                      tickFormatter={(value) =>
+                        `$${((value * 12) / 1000).toFixed(0)}k`
+                      }
+                    />
+                    <Tooltip
+                      formatter={(value: number) => [
+                        `$${(value * 12).toLocaleString()}`,
+                        "Annual Amount",
+                      ]}
                       labelFormatter={(label) => `${label} Category`}
                     />
-                    <Bar dataKey="amount" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                    <Bar
+                      dataKey="amount"
+                      fill="hsl(var(--primary))"
+                      radius={[4, 4, 0, 0]}
+                    />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-              
+
               <div className="grid grid-cols-3 gap-4 mt-6 text-center">
                 <div>
-                  <p className="text-2xl font-bold text-chart-1">${(needs * 12).toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-chart-1">
+                    ${(needs * 12).toLocaleString()}
+                  </p>
                   <p className="text-sm text-muted-foreground">Annual Needs</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-chart-2">${(wants * 12).toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-chart-2">
+                    ${(wants * 12).toLocaleString()}
+                  </p>
                   <p className="text-sm text-muted-foreground">Annual Wants</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-chart-3">${(savings * 12).toLocaleString()}</p>
-                  <p className="text-sm text-muted-foreground">Annual Savings</p>
+                  <p className="text-2xl font-bold text-chart-3">
+                    ${(savings * 12).toLocaleString()}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Annual Savings
+                  </p>
                 </div>
               </div>
             </CardContent>
