@@ -244,11 +244,11 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {loading
             ? // Loading skeletons
               Array.from({ length: 6 }).map((_, i) => (
-                <Card key={i} className="h-80">
+                <Card key={i} className="min-h-[400px]">
                   <CardHeader>
                     <Skeleton className="h-4 w-3/4" />
                     <Skeleton className="h-3 w-1/2" />
@@ -267,9 +267,12 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
                 );
 
                 return (
-                  <Card key={article.id} className="h-80 flex flex-col">
+                  <Card
+                    key={article.id}
+                    className="min-h-[400px] flex flex-col hover:shadow-lg transition-shadow"
+                  >
                     <CardHeader className="pb-3">
-                      <div className="flex items-start justify-between">
+                      <div className="flex items-start justify-between mb-2">
                         <div className="flex items-center gap-2">
                           <CategoryIcon className="h-4 w-4 text-muted-foreground" />
                           <Badge variant="outline" className="text-xs">
@@ -280,8 +283,15 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
                           {formatDate(article.publishedAt)}
                         </span>
                       </div>
-                      <CardTitle className="text-lg line-clamp-2">
-                        {article.title}
+                      <CardTitle className="text-lg leading-tight mb-2">
+                        <a
+                          href={article.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors cursor-pointer"
+                        >
+                          {article.title}
+                        </a>
                       </CardTitle>
                       <CardDescription className="text-sm">
                         {article.source}
@@ -289,7 +299,7 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
                     </CardHeader>
 
                     <CardContent className="flex-1 flex flex-col">
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                         {article.description}
                       </p>
 
@@ -317,11 +327,13 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
                                 </Badge>
                               )}
                             </div>
-                            <p className="text-sm">{article.aiSummary}</p>
+                            <p className="text-sm leading-relaxed">
+                              {article.aiSummary}
+                            </p>
                           </div>
                         </div>
                       ) : (
-                        <div className="mt-auto">
+                        <div className="mt-auto space-y-3">
                           <Button
                             variant="outline"
                             size="sm"
@@ -340,6 +352,22 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
                                 Generate AI Insight
                               </>
                             )}
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            asChild
+                            className="w-full"
+                          >
+                            <a
+                              href={article.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-2"
+                            >
+                              <span>Read Full Article</span>
+                              <span className="text-xs">↗</span>
+                            </a>
                           </Button>
                         </div>
                       )}
