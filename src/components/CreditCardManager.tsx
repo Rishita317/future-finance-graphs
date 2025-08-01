@@ -384,9 +384,6 @@ const CreditCardManager = () => {
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="" disabled>
-                        Select a category
-                      </SelectItem>
                       {Object.entries(subcategories).map(
                         ([category, items]) => (
                           <div key={category}>
