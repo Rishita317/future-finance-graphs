@@ -33,6 +33,14 @@ A comprehensive financial management application that combines price prediction,
 - **Smart Insights**: Get personalized recommendations and warnings
 - **Time Range Analysis**: View data for week, month, quarter, or year
 
+### 📰 Live Financial News & AI Insights
+
+- **Real-time News Feed**: Latest financial news from trusted sources
+- **AI-Powered Summaries**: Get instant insights on market impact
+- **Category Filtering**: Focus on tech, real estate, or commodities news
+- **Market Impact Analysis**: Understand how news affects your investments
+- **Confidence Scoring**: AI provides confidence levels for predictions
+
 ### 🎨 Modern UI/UX
 
 - Dark/Light theme toggle
@@ -79,6 +87,31 @@ A comprehensive financial management application that combines price prediction,
 - **State Management**: React Context API
 - **Build Tool**: Vite
 - **Package Manager**: npm
+- **APIs**: NewsAPI (financial news), OpenAI (AI summaries)
+
+## API Setup
+
+To enable the live news and AI summary features, you'll need to set up API keys:
+
+### 1. NewsAPI Setup
+1. Visit [NewsAPI](https://newsapi.org/) and sign up for a free account
+2. Get your API key from the dashboard
+3. Create a `.env` file in the root directory
+4. Add: `VITE_NEWS_API_KEY=your_news_api_key_here`
+
+### 2. OpenAI API Setup
+1. Visit [OpenAI Platform](https://platform.openai.com/api-keys)
+2. Create an account and get your API key
+3. Add to your `.env` file: `VITE_OPENAI_API_KEY=your_openai_api_key_here`
+
+### 3. Environment File
+Create a `.env` file in the root directory:
+```env
+VITE_NEWS_API_KEY=your_news_api_key_here
+VITE_OPENAI_API_KEY=your_openai_api_key_here
+```
+
+**Note**: Never commit your `.env` file to version control!
 
 ## Getting Started
 

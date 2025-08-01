@@ -4,6 +4,7 @@ import {
   BarChart3,
   CreditCard,
   PieChart,
+  Newspaper,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
@@ -54,6 +55,14 @@ const Header = () => {
           >
             <PieChart className="h-4 w-4" />
             <span>Analytics</span>
+          </Button>
+          <Button
+            variant="ghost"
+            onClick={() => scrollToSection("news")}
+            className="flex items-center space-x-2"
+          >
+            <Newspaper className="h-4 w-4" />
+            <span>News</span>
           </Button>
           <ThemeToggle />
         </nav>
