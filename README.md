@@ -94,18 +94,22 @@ A comprehensive financial management application that combines price prediction,
 To enable the live news and AI summary features, you'll need to set up API keys:
 
 ### 1. NewsAPI Setup
+
 1. Visit [NewsAPI](https://newsapi.org/) and sign up for a free account
 2. Get your API key from the dashboard
 3. Create a `.env` file in the root directory
 4. Add: `VITE_NEWS_API_KEY=your_news_api_key_here`
 
 ### 2. OpenAI API Setup
+
 1. Visit [OpenAI Platform](https://platform.openai.com/api-keys)
 2. Create an account and get your API key
 3. Add to your `.env` file: `VITE_OPENAI_API_KEY=your_openai_api_key_here`
 
 ### 3. Environment File
+
 Create a `.env` file in the root directory:
+
 ```env
 VITE_NEWS_API_KEY=your_news_api_key_here
 VITE_OPENAI_API_KEY=your_openai_api_key_here
