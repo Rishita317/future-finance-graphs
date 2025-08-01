@@ -201,8 +201,8 @@ class NewsService {
 
 // Export singleton instance
 export const newsService = new NewsService(
-  process.env.VITE_NEWS_API_KEY || '',
-  process.env.VITE_OPENAI_API_KEY || ''
+  import.meta.env.VITE_NEWS_API_KEY || '',
+  import.meta.env.VITE_OPENAI_API_KEY || ''
 );
 
 export type { NewsArticle, OpenAISummaryResponse }; 
