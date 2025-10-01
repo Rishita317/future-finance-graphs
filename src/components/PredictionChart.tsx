@@ -39,11 +39,6 @@ const PredictionChart = ({ title, category, data, currentPrice, prediction2Year,
               <span className="font-mono">${data.predicted.toLocaleString()}</span>
             </p>
           )}
-          {data.confidence && (
-            <p className="text-xs text-muted-foreground">
-              Confidence: {data.confidence}%
-            </p>
-          )}
         </div>
       );
     }
@@ -126,18 +121,15 @@ const PredictionChart = ({ title, category, data, currentPrice, prediction2Year,
           </ResponsiveContainer>
         </div>
         
-        <div className="flex items-center justify-between pt-2">
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <div className={`w-3 h-0.5 bg-[${color}]`} />
-              <span>Historical</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className={`w-3 h-0.5 bg-[${color}] opacity-60`} style={{ borderTop: `1px dashed ${color}` }} />
-              <span>Predicted</span>
-            </div>
+        <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2">
+          <div className="flex items-center gap-1">
+            <div className={`w-3 h-0.5 bg-[${color}]`} />
+            <span>Historical</span>
           </div>
-          <p className="text-xs text-muted-foreground">AI Confidence: 85%</p>
+          <div className="flex items-center gap-1">
+            <div className={`w-3 h-0.5 bg-[${color}] opacity-60`} style={{ borderTop: `1px dashed ${color}` }} />
+            <span>Predicted</span>
+          </div>
         </div>
       </CardContent>
     </Card>
