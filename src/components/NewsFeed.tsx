@@ -321,11 +321,6 @@ const NewsFeed = ({ apiKey }: NewsFeedProps) => {
                               <span className="text-sm font-medium capitalize">
                                 {article.marketImpact} Impact
                               </span>
-                              {article.confidence && (
-                                <Badge variant="secondary" className="text-xs">
-                                  {article.confidence}% confidence
-                                </Badge>
-                              )}
                             </div>
                             <p className="text-sm leading-relaxed">
                               {article.aiSummary}
